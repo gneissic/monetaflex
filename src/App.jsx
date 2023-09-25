@@ -11,24 +11,35 @@ import Error from "./components/error";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import DashboardPage from "./pages/DashboardPage";
+import AccRoot from "./components/accRoot";
+import StorePage from "./pages/StorePage";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
-      errorElement:<Error/>,
+      errorElement: <Error />,
       children: [
         { path: "/", element: <HomePage /> },
         { path: "about", element: <AboutPage /> },
         { path: "services", element: <ServicesPage /> },
-        {path:"checkers", element:<CheckCouponPage/>},
-        {path:"vendors", element:<VendorPage/>},
-        {path:"top", element:<TopEarnersPage/>},
-        {path:"contact", element:<ContactPage/>},
-        {path:"login", element:<LoginPage/>},
-        {path:"signup", element:<SignupPage/>},
+        { path: "checkers", element: <CheckCouponPage /> },
+        { path: "vendors", element: <VendorPage /> },
+        { path: "top", element: <TopEarnersPage /> },
+        { path: "contact", element: <ContactPage /> },
+        { path: "login", element: <LoginPage /> },
+        { path: "signup", element: <SignupPage /> },
       ],
+    },
+    {
+      path: "",
+      element: <AccRoot />,
+      children: [
+        { path: "account/dashboard", element: <DashboardPage /> },
+        { path: "account/store", element: <StorePage /> }
+    ],
     },
   ]);
   return (

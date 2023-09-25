@@ -3,6 +3,7 @@ import PageLinks from "../PageLinks";
 import { Form, Link } from "react-router-dom";
 
 const Signup = () => {
+ 
   return (
     <Fragment>
       <PageLinks title="Signup" linkTitle="Home" linkTitle2="Signup" />
@@ -29,6 +30,7 @@ const Signup = () => {
             <input
               type="email"
               name="mail"
+              
               required
               placeholder="Enter your email address"
               className=" outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
@@ -52,7 +54,6 @@ const Signup = () => {
               <input
                 type="text"
                 name="refer"
-                required
                 placeholder="Optional"
                 className=" outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
               />

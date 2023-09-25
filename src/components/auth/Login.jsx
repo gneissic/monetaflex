@@ -1,14 +1,17 @@
 import { Fragment } from "react"
 import PageLinks from "../PageLinks"
-import { Form, Link } from "react-router-dom"
+import { Form, Link, redirect,  } from "react-router-dom"
 
 const Login = () => {
+  const signupHandler = ()=>{
+  redirect("/")
+  }
   return (
     <Fragment>
         <PageLinks  linkTitle="home" linkTitle2="login" title="Login" />
         <div className=" pt-[4rem]">
         <h1 className=" ml-2 text-3xl tracking-wider font-pops font-bold">Sign Up</h1>
-            <Form>
+            <Form onSubmit={signupHandler}>
                 <div className="grid gap-4 pt-7">
                 <input
                 type="text"
