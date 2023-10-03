@@ -6,7 +6,7 @@ import { BsCheck } from "react-icons/bs";
 const EarnCheck = props => {
   return (
     <Fragment>
-        <div className='flex ml-2 items-center gap-2'>
+        <div className='flex ml-2 items-center gap-2 '>
             <div className='border border-title font-semibold  text-primary bg-title'>
             <BsCheck/>
             </div>

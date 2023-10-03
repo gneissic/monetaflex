@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import PageLinks from "../PageLinks";
 import EarnCheck from "../Nav/EarnCheck";
 import Button from "../ui/Button";
+import { motion } from "framer-motion";
 const ABOUT = [
     {id: 1, check:"Instant Withdrawal"},
     {id: 2, check:"End-to-end encryption"},
@@ -10,6 +11,10 @@ const ABOUT = [
 
 
 const About = () => {
+  const headingVariant = {
+    hidden: {opacity:0, y:-50},
+    visible: {opacity:1, y:0, transition:{ duration:1, stifness:80}}
+  }
   return (
     <Fragment>
       <PageLinks
@@ -19,11 +24,15 @@ const About = () => {
         link="/about"
       />
       <div className="pl-3">
-        <div className="pt-[3rem]">
+        <motion.div
+        variants={headingVariant}
+        initial="hidden"
+        animate="visible"
+        className="pt-[3rem]">
           <h1 className="text-black font-bold font-pops text-3xl">
             An MonetaFlex - <span className="block">Operations</span>
           </h1>
-        </div>
+        </motion.div>
         <div className=" grid gap-4 text-black/70 pt-[2rem] font-pops font-semibold tracking-wide">
           <p>Monetaflex is a system built with unique features of its own</p>
           <p>

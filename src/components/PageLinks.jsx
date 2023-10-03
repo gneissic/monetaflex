@@ -4,8 +4,8 @@ const PageLinks = (props) => {
   return (
     <div className="bg-gradient-to-b from-title h-full">
       <div className="text-center pt-[3rem] font-pops grid gap-3 ">
-        <h1 className="font-bold text-3xl tracking-wider">{props.title}</h1>
-        <div className="flex justify-center gap-2 ">
+        <h1 className="font-bold text-3xl lg:text-5xl tracking-wider">{props.title}</h1>
+        <div className="flex justify-center gap-2  lg:text-lg">
           <Link to={"/"}>
             <p className="text-black/70 font-semibold">{props.linkTitle} </p>
           </Link>

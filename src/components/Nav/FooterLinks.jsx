@@ -4,7 +4,7 @@ const FooterLinks = (props) => {
     <div>
          <div>
                 <ul>
-                    <li className='text-white'>{props.link}</li>
+                    <li className='text-white lg:text-xl'>{props.link}</li>
                 </ul>
             </div>
     </div>

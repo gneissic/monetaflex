@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import SidebarLogo from "./SidebarLogo";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 const NAV_ITEMS = [
   { id: "/", nav: "Home" },
@@ -12,25 +12,26 @@ const NAV_ITEMS = [
   { id: "contact", nav: "Contact" },
 ];
 const sideVariants = {
-  hidden: { x: "-100vw", opacity: 0 , },
+  hidden: { x: "-100vw", opacity: 0 ,  transition:{duration:0.3}},
   visible: { x: 0, opacity: 1, transition:{duration:0.3} },
-};
+}
 const hoverVariant = {
   hover: { scale: 1.1, originX: 0, color: "#ffffcd" },
-};
+}
 
 const SideBarItems = (props) => {
+  const menu = props.menu
   return (
     <Fragment>
       <AnimatePresence>
-      <motion.div
+      {menu && <motion.div
         variants={sideVariants}
         initial="hidden"
         animate="visible"
-        exit={{ X: -1000 }}
+        exit="hidden"
         className="fixed top-0 z-30 bg-[#66ff66] w-[55%] h-full"
       >
-        <SidebarLogo />
+        <SidebarLogo/>
         <div className="pl-2 pt-[2rem]">
           <ul className="grid gap-5 font-nun font-semibold text-gray-700">
             {NAV_ITEMS.map((item) => (
@@ -54,8 +55,9 @@ const SideBarItems = (props) => {
           </button></Link>
           <Link to={"signup"}><button className="ml-3 bg-[#ccccff] py-4 px-6">Register</button></Link>
         </div>
-      </motion.div>
+      </motion.div>} 
       </AnimatePresence>
+     
       
     </Fragment>
   );

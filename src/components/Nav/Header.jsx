@@ -2,14 +2,11 @@ import { Fragment } from "react";
 import Logo from "../../assets/logo.png";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
-import { motion } from "framer-motion";
 import Img from "../../assets/bg-img-1.png";
+import { Link, NavLink } from "react-router-dom";
+
 const Header = (props) => {
   const { menu, showMenu, hideMenu } = props;
-  const toggleVriant = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1},
-  };
 
   return (
     <Fragment>
@@ -18,27 +15,72 @@ const Header = (props) => {
           <img src={Logo} alt="" className="w-14 h-14" />
         </div>
         <div>
-          <motion.div
-            variants={toggleVriant}
-            initial="hidden"
-            animate="visible"
-            onClick={showMenu}
-          >
-            {!menu && <CiMenuFries className="h-8 w-8 text-primary font-bold" />}
-          </motion.div>
-          <motion.div
-            variants={toggleVriant}
-            initial="hidden"
-            animate="visible"
-            onClick={hideMenu}
-          >
+          <ul className="hidden  lg:flex lg:gap-[5rem]">
+            <NavLink to={"/"} className={({ isActive }) =>
+              isActive
+                ? "text-primary font-semibold"
+                : "font-semibold hover:underline hover:text-primary transition-all duration-200 ease-in"
+            }>
+              {" "}
+              <li>Home</li>{" "}
+            </NavLink>
+            <NavLink to={"about"} className={({ isActive }) =>
+              isActive
+                ? " hover:text-red-900 text-primary font-semibold"
+                : "font-semibold hover:underline hover:text-primary transition-all duration-200 ease-in"
+            }>
+              {" "}
+              <li>About</li>
+            </NavLink>
+            <NavLink to={"services"} className={({ isActive }) =>
+              isActive
+                ? "text-primary font-semibold"
+                : "font-semibold hover:underline hover:text-primary transition-all duration-200 ease-in"
+            }>
+              {" "}
+              <li>Services</li>
+            </NavLink>
+            <NavLink to={"contact"} className={({ isActive }) =>
+              isActive
+                ? "text-primary font-semibold"
+                : "font-semibold hover:underline hover:text-primary transition-all duration-200 ease-in"
+            }>
+              {" "}
+              <li>Contact</li>
+            </NavLink>
+          </ul>
+        </div>
+        <div className="hidden lg:flex lg:pr-5 lg:gap-3 ">
+          <Link to={"login"}>
+            {" "}
+            <button className="ml-2 bg-primary py-4 px-6 rounded-md text-white shadow">
+              Login
+            </button>
+          </Link>
+          <Link to={"signup"}>
+            <button className="ml-3 bg-[#ccccff] py-4 px-6 rounded-md">
+              Register
+            </button>
+          </Link>
+        </div>
+        <div className="lg:hidden">
+          <div onClick={showMenu}>
+            {!menu && (
+              <CiMenuFries className="h-8 w-8 text-primary font-bold" />
+            )}
+          </div>
+          <div onClick={hideMenu}>
             {menu && (
               <AiOutlineClose className="h-8 w-8 text-primary font-bold" />
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
-        <img src={Img} className="h-[50rem]  absolute -z-10 top-0 right-0" alt="" />
+      <img
+        src={Img}
+        className="h-[50rem]  absolute -z-10 top-0 right-0"
+        alt=""
+      />
     </Fragment>
   );
 };

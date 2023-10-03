@@ -3,6 +3,8 @@ import PageLinks from "../PageLinks";
 import { BsFillSunFill } from "react-icons/bs";
 import EarnCheck from "../Nav/EarnCheck";
 import Button from "../ui/Button";
+import { motion } from "framer-motion";
+
 const STREAMS = [
   {
     id: 2,
@@ -31,6 +33,10 @@ const EARN = [
 
 
 const Services = () => {
+  const headingVariant = {
+    hidden: {opacity:0, y:-50},
+    visible: {opacity:1, y:0, transition:{ duration:1, stifness:80}}
+  }
   return (
     <Fragment>
       <PageLinks
@@ -40,11 +46,15 @@ const Services = () => {
         link="/services"
       />
       <div className="pl-3">
-        <div className="pt-[3rem]">
+        <motion.div 
+        variants={headingVariant}
+        initial="hidden"
+        animate="visible"
+        className="pt-[3rem]">
           <h1 className="text-black font-bold font-pops text-2xl">
             We Provide Best Earning <span className="block">Solutions</span>
           </h1>
-        </div>
+        </motion.div>
         <div className=" grid gap-4 text-black/70 pt-[2rem] font-pops font-semibold tracking-wide">
           <p>Monetaflex is a system built with unique features of its own</p>
           <p>

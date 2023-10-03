@@ -13,9 +13,18 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/DashboardPage";
 import AccRoot from "./components/accRoot";
+import { action as storeAction, loader as storeLoader } from "./pages/storeActions";
 import StorePage from "./pages/StorePage";
+import { useState } from "react";
 
 function App() {
+  const [showStoreModal, setShowStoreModal] = useState(false);
+    const showStoreModalHandler = () => {
+    setShowStoreModal(true);
+  };
+  const hideStoreModalHandler = () => {
+    setShowStoreModal(false);
+  };
   const router = createBrowserRouter([
     {
       path: "/",
@@ -36,10 +45,23 @@ function App() {
     {
       path: "",
       element: <AccRoot />,
+      errorElement:<Error/>,
       children: [
         { path: "account/dashboard", element: <DashboardPage /> },
-        { path: "account/store", element: <StorePage /> }
-    ],
+        {
+          path: "account/store",
+          element: (
+            <StorePage
+              storeModal={showStoreModal}
+              showStoreModal={showStoreModalHandler}
+              hideStoreModal={hideStoreModalHandler}
+            />
+          ),
+          action: storeAction,
+          loader:storeLoader
+
+        },
+      ],
     },
   ]);
   return (
