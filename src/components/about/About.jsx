@@ -23,7 +23,7 @@ const About = () => {
         linkTitle2="About Monetaflex"
         link="/about"
       />
-      <div className="pl-3">
+      <div className="pl-3 lg:pl-0 lg:text-center">
         <motion.div
         variants={headingVariant}
         initial="hidden"
@@ -33,7 +33,7 @@ const About = () => {
             An MonetaFlex - <span className="block">Operations</span>
           </h1>
         </motion.div>
-        <div className=" grid gap-4 text-black/70 pt-[2rem] font-pops font-semibold tracking-wide">
+        <div className=" grid gap-4 text-black/70 pt-[2rem] font-pops font-semibold tracking-wide lg:w-[80%] mx-auto lg:text-lg">
           <p>Monetaflex is a system built with unique features of its own</p>
           <p>
             Monetaflex is a system bult to equip the users with modern day
@@ -46,10 +46,10 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className=" w-[60%] text-md pt-3 font-semibold">
+      <div className=" w-[60%] text-md pt-3 lg:pt-5 font-semibold lg:grid lg:grid-cols-2 lg:mx-auto">
             {ABOUT.map((about)=>(<EarnCheck key={about.id} check={about.check} />))  }
         </div>
-        <div>
+        <div className="lg:w-[63%] lg:mx-auto">
             <Button reg="Get Started Today" />
         </div>
     </Fragment>

@@ -7,12 +7,12 @@ const Signup = () => {
   return (
     <Fragment>
       <PageLinks title="Signup" linkTitle="Home" linkTitle2="Signup" />
-      <div className=" pt-[4rem]">
-        <h1 className=" ml-2 text-3xl tracking-wider font-pops font-bold">
+      <div className=" pt-[4rem] ">
+        <h1 className=" lg:w-[70%]  lg:mx-auto ml-2 text-3xl lg:w-4xl tracking-wider font-pops font-bold">
           Sign Up
         </h1>
         <Form>
-          <div className="grid gap-4 pt-7">
+          <div className="grid  lg:grid-cols-2 lg:w-[70%]  lg:mx-auto gap-4 pt-7 cursor-pointer">
             <input
               type="text"
               name="fullname"
@@ -47,7 +47,7 @@ const Signup = () => {
               name="number"
               required
               placeholder="Enter your Phone Number"
-              className=" outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
+              className=" outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2  font-pops pl-2 font-semibold text-black"
             />
             <div>
               <p className="pl-2 pb-2 text-black font-semibold">Referred By:</p>
@@ -59,7 +59,8 @@ const Signup = () => {
               />
             </div>
           </div>
-          <button className=" ml-2 py-4 rounded-md text-white font-pops font-semibold tracking-wider bg-primary px-6 mt-7">
+          <div className="lg:w-[70%]  lg:mx-auto">
+          <button className="  ml-2 py-4 rounded-md text-white font-pops font-semibold tracking-wider bg-primary px-6 mt-7">
             Signup
           </button>
           <p className="pt-3 font-pops text-black/70 font-semibold">
@@ -69,6 +70,8 @@ const Signup = () => {
               <Link to={"/login"}> Login here </Link>
             </span>{" "}
           </p>
+          </div>
+          
         </Form>
       </div>
     </Fragment>

@@ -50,7 +50,7 @@ const Contact = () => {
       setLoaded(true);
       setError(null);
     } catch (error) {
-      setError(error.message);
+      setError("Failed to send message....");
     }
     setName("");
     setMail("");
@@ -94,14 +94,16 @@ const Contact = () => {
   return (
     <Fragment>
       <PageLinks title="Contact" linkTitle="Home" linkTitle2="Contact" />
-      <div>
-        {sendMessage}
-        <h1 className="pt-[3rem] text-3xl tracking-wider font-bold font-pops pl-2">
+      <div className="lg:w-[80%] lg:mx-auto">
+      {sendMessage}
+        <h1 className="pt-[3rem] text-3xl lg:text-4xl  lg:ml-[6rem] tracking-wider font-bold font-pops pl-2">
           Send Us A Message
         </h1>
+      <div className="lg:flex lg:justify-center lg:gap-[2rem]">
         <div className="pt-[2rem]">
           <Form onSubmit={onSubmitUserData}>
             <div className="grid gap-6">
+              <div className="lg:flex">
               <input
                 onChange={enterNameHandler}
                 value={name}
@@ -109,7 +111,7 @@ const Contact = () => {
                 name="user-name"
                 required
                 placeholder="Enter your Name"
-                className=" outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
+                className=" outline-none w-[90%] lg:w-full ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
               />
               <input
                 onChange={enterMailHandler}
@@ -118,8 +120,10 @@ const Contact = () => {
                 name="user-mail"
                 required
                 placeholder="Enter your Email address"
-                className=" outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
+                className=" outline-none w-[90%]  lg:w-full ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
               />
+              </div>
+              
               <textarea
                 onChange={enterMessageHandler}
                 value={message}
@@ -129,7 +133,7 @@ const Contact = () => {
                 id=""
                 cols="30"
                 rows="5"
-                className="outline-none w-[90%] ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
+                className="outline-none w-[90%] lg:w-full ml-3 border rounded-md border-black/50 py-2 font-pops pl-2 font-semibold text-black"
               ></textarea>
             </div>
             <div className="pt-[0.5rem]">{loading}</div>
@@ -164,6 +168,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      </div>
+        
     </Fragment>
   );
 };

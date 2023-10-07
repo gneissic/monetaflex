@@ -1,21 +1,38 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import UploadProducts from "./UploadProducts";
 import ProductItems from "./ProductItems";
 import { useNavigation } from "react-router-dom";
+import { productActions } from "../../store/product-slice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Store = (props) => {
+  const dispatch = useDispatch()
+  const productData  = useSelector((state)=> state.product.productData)
+  console.log(productData);
   const data = props.data;
   const random = Math.random() * 100;
   const noData = data.length === 0;
   const navigation = useNavigation()
   const loading = navigation.state === "submitting"
+  useEffect(()=>{dispatch(productActions.onAddTrips({
+    title:data.productTItle,
+    description:data.ProductDescription,
+    img:data.productImage,
+    price:data.productPrice
+
+  })) }, [dispatch, data])
+   
 
   return (
     <Fragment>
+      
+     
+      <div className="bg-gray-100 pt-5 h-full lg:w-[67rem]">
+      <div>
       {props.storeModal && (
         <UploadProducts hideStoreModal={props.hideStoreModal} />
       )}
-      <div className="bg-gray-100 h-inherit">
+      </div>
         <div className="justify-between flex px-4 items-center">
           <p className="font-pops text-black/80 font-semibold">Moneta Store</p>
           <div>

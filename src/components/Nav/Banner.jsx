@@ -4,16 +4,13 @@ import FlexiblePackages from "./FlexiblePackages";
 import JoinMonetaflex from "./JoinMonetaflex";
 import Earn from "./Earn";
 import FinancialJourney from "./FinancialJourney";
-import { AnimatePresence, motion } from "framer-motion";
-
+import { useSelector } from "react-redux";
 const Banner = () => {
+  const productData = useSelector((state)=> state.product.productData)
+  console.log(productData);
   
   return (
     <Fragment>
-      <AnimatePresence>
-        <motion.div exit={{opacity:1, x:-1000,}}>
-        </motion.div>
-      </AnimatePresence>
      
       <BannerBody
       />

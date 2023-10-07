@@ -45,13 +45,13 @@ const Services = () => {
         linkTitle2="Services"
         link="/services"
       />
-      <div className="pl-3">
+      <div className="pl-3  lg:w-[90%] lg:mx-auto">
         <motion.div 
         variants={headingVariant}
         initial="hidden"
         animate="visible"
         className="pt-[3rem]">
-          <h1 className="text-black font-bold font-pops text-2xl">
+          <h1 className="text-black font-bold font-pops text-2xl lg:text-4xl">
             We Provide Best Earning <span className="block">Solutions</span>
           </h1>
         </motion.div>
@@ -73,6 +73,8 @@ const Services = () => {
           </p>
         </div>
       </div>
+      <div className="lg:w-[90%] lg:mx-auto">
+      
       <div className="pl-2">
         <h1 className="text-2xl font-pops py-3 font-semibold text-black/80">Earning Streams</h1>
         <p>$400 Activation fee</p>
@@ -87,11 +89,12 @@ const Services = () => {
       </ul>
       <div>
         <h1 className="font-bold font-pops text-black text-3xl tracking-wide py-2 pl-2">Skills to learn</h1>
-        <div>
+        <div className="lg:grid lg:grid-cols-2 gap-4">
             {EARN.map((earn)=>(<EarnCheck key={earn.id} check={earn.check} />))  }
         </div>
       </div>
       <Button reg="Get Started Today"/>
+      </div>
     </Fragment>
   );
 };

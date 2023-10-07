@@ -32,10 +32,10 @@ const Login = () => {
   return (
     <Fragment>
         <PageLinks  linkTitle="home" linkTitle2="login" title="Login" />
-        <div className=" pt-[4rem]">
+        <div className=" pt-[4rem] lg:w-[40%] lg:mx-auto">
         <h1 className=" ml-2 text-3xl tracking-wider font-pops font-bold">Sign Up</h1>
             <form onSubmit={signupHandler} >
-                <div className="grid gap-4 pt-7">
+                <div className="grid gap-4 lg:gap-10 pt-7">
                 <input
                 value={userName}
                 onChange={changeUserNameHandler}
@@ -47,7 +47,7 @@ const Login = () => {
               />
               {userNamIsInValid && <p className="ml-2 text-red-900 font-semibold">Username must be greather than 6</p>}
             <input
-                type="text"
+                type="password"
                 name="password"
                 value={password}
                 onChange={changePasswordHandler}

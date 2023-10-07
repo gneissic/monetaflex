@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Root from "./components/root";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -16,9 +16,16 @@ import AccRoot from "./components/accRoot";
 import { action as storeAction, loader as storeLoader } from "./pages/storeActions";
 import StorePage from "./pages/StorePage";
 import { useState } from "react";
+import { Provider } from "react-redux";
+import reduxStore from "./store";
+reduxStore
+
 
 function App() {
+  
+
   const [showStoreModal, setShowStoreModal] = useState(false);
+
     const showStoreModalHandler = () => {
     setShowStoreModal(true);
   };
@@ -66,7 +73,10 @@ function App() {
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      
+     <Provider store={reduxStore}>
+      <RouterProvider router={router}  />
+      </Provider>
     </>
   );
 }

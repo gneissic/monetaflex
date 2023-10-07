@@ -15,9 +15,9 @@ const DASHBOARD = [
 const Dashboard = () => {
   return (
     <Fragment>
-      <div className="ml-3">
+      <div className="pl-3 lg:w-[67rem] w-full">
         <p className="py-4 text-xl font-pops tracking-wider">User Dasboard</p>
-        <div className=" grid gap-3 grid-cols-2 grid-rows-3 pb-5">
+        <div className=" grid gap-3 grid-cols-2 lg:grid-cols-3 pb-5">
           {DASHBOARD.map((dash) => (
             <DashboardCards
               key={dash.title}
@@ -26,7 +26,7 @@ const Dashboard = () => {
             />
           ))}
         </div>
-        <div className="grid gap-3 pb-4">
+        <div className="grid lg:grid-cols-2 gap-3 pb-4">
           <div className="relative">
             <Link to={"/account/store"}>
             <button className="absolute right-12 top-3 bg-secondary py-2 px-3 rounded-md text-gray-200 font-semibold">Go to Store</button>

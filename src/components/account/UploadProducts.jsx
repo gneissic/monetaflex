@@ -4,12 +4,10 @@ import { BsCircle } from "react-icons/bs";
 
 const UploadProducts = (props) => {
 
-
-    
   return (
     <Fragment>
       <div onClick={props.hideStoreModal} className="bg-black/80 inset-0 fixed z-10"></div>
-      <div className=" pt-5  bg-white fixed z-10 top-5 w-[95%] left-3 rounded-md h-[35rem]">
+      <div className=" pt-5  bg-white fixed z-10 top-5 w-[95%] lg:w-[50%] left-3 lg:left-[24%] rounded-md h-[35rem]">
         <p className="text-xl font-serif py-3 pl-4">Upload to Moneta Store</p>
         <Form method="post" onSubmit={props.hideStoreModal}>
           <div className="grid gap-5">

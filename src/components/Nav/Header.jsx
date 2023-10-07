@@ -40,6 +40,14 @@ const Header = (props) => {
               {" "}
               <li>Services</li>
             </NavLink>
+            <NavLink to={"checkers"} className={({ isActive }) =>
+              isActive
+                ? "text-primary font-semibold"
+                : "font-semibold hover:underline hover:text-primary transition-all duration-200 ease-in"
+            }>
+              {" "}
+              <li>Coupon Checker</li>
+            </NavLink>
             <NavLink to={"contact"} className={({ isActive }) =>
               isActive
                 ? "text-primary font-semibold"
