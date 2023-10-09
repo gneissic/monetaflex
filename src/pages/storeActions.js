@@ -31,19 +31,17 @@ export async function action({request}) {
       throw json
     } else {
       const data = await response.json();
-      return data
-      
-      // const responseData = [];
-      // for (const key in data) {
-      //   responseData.push({
-      //     phoneNumber: data[key].phoneNumber,
-      //     productTitle: data[key].productTitle,
-      //     productPrice: data[key].productPrice,
-      //     productDescription: data[key].productDescription,
-      //     productImage: data[key].productImage
-      //   });
-      // }
-      // return responseData;
+      const responseData = [];
+      for (const key in data) {
+        responseData.push({
+          phoneNumber: data[key].phoneNumber,
+          productTitle: data[key].productTitle,
+          productPrice: data[key].productPrice,
+          productDescription: data[key].productDescription,
+          productImage: data[key].productImage
+        })
+      }
+      return responseData;
     }
   }
   
